@@ -1,11 +1,13 @@
 <script setup>
 import { computed, ref } from 'vue'
+import PokemonCard from './components/PokemonCard.vue'
+import PokemonSearch from './components/PokemonSearch.vue'
 import { pokemonIniciales } from './data/pokemon.js'
 
 // Con ref, Vue vuelve a dibujar la lista si añadimos o quitamos registros.
 const pokemons = ref([...pokemonIniciales])
 
-// v-model sincroniza estos dos valores con los controles.
+// El padre conserva el estado que comparten la búsqueda y el catálogo.
 const busqueda = ref('')
 const tipoSeleccionado = ref('')
 const favoritos = ref([])
@@ -36,6 +38,15 @@ function alternarFavorito(id) {
   }
 }
 
+// Los eventos de los controles actualizan el estado del padre.
+function actualizarBusqueda(texto) {
+  busqueda.value = texto
+}
+
+function actualizarTipo(tipo) {
+  tipoSeleccionado.value = tipo
+}
+
 function limpiarFiltros() {
   busqueda.value = ''
   tipoSeleccionado.value = ''
@@ -54,20 +65,14 @@ function limpiarFiltros() {
   <main class="contenedor">
     <h1>Catálogo Pokémon</h1>
 
-    <div class="filtros">
-      <div class="campo">
-        <label for="busqueda">Nombre</label>
-        <input id="busqueda" v-model="busqueda" type="search" placeholder="Ej. Pikachu">
-      </div>
-      <div class="campo">
-        <label for="tipo">Tipo</label>
-        <select id="tipo" v-model="tipoSeleccionado">
-          <option value="">Todos los tipos</option>
-          <option v-for="tipo in tiposDisponibles" :key="tipo" :value="tipo">{{ tipo }}</option>
-        </select>
-      </div>
-      <button type="button" class="limpiar" @click="limpiarFiltros">Limpiar filtros</button>
-    </div>
+    <PokemonSearch
+      :busqueda="busqueda"
+      :tipo-seleccionado="tipoSeleccionado"
+      :tipos-disponibles="tiposDisponibles"
+      @cambiar-busqueda="actualizarBusqueda"
+      @cambiar-tipo="actualizarTipo"
+      @limpiar-filtros="limpiarFiltros"
+    />
 
     <p v-show="busqueda === '' && tipoSeleccionado === ''" class="pista">
       Puedes combinar el nombre y el tipo.
@@ -78,29 +83,13 @@ function limpiarFiltros() {
     <p v-else-if="pokemonsVisibles.length === 0" class="sin-resultados">No hay coincidencias.</p>
     <ul v-else class="catalogo">
       <!-- La clave estable permite a Vue identificar cada tarjeta de la lista. -->
-      <li v-for="pokemon in pokemonsVisibles" :key="pokemon.id" class="tarjeta">
-        <div class="ilustracion" :data-tipo="pokemon.tipos[0]">
-          <span class="numero">#{{ String(pokemon.id).padStart(3, '0') }}</span>
-          <!-- El marcador es decorativo. El nombre está escrito debajo. -->
-          <img :src="pokemon.imagen" alt="" width="144" height="144">
-          <button
-            type="button"
-            class="favorito"
-            :class="{ activo: esFavorito(pokemon.id) }"
-            :aria-label="'Favorito: ' + pokemon.nombre"
-            :aria-pressed="esFavorito(pokemon.id)"
-            @click="alternarFavorito(pokemon.id)"
-          >
-            <span aria-hidden="true">{{ esFavorito(pokemon.id) ? '★' : '☆' }}</span>
-          </button>
-        </div>
-        <div class="ficha">
-          <h2>{{ pokemon.nombre }}</h2>
-          <ul class="tipos" aria-label="Tipos">
-            <li v-for="tipo in pokemon.tipos" :key="tipo" :data-tipo="tipo">{{ tipo }}</li>
-          </ul>
-        </div>
-      </li>
+      <PokemonCard
+        v-for="pokemon in pokemonsVisibles"
+        :key="pokemon.id"
+        :pokemon="pokemon"
+        :favorito="esFavorito(pokemon.id)"
+        @alternar-favorito="alternarFavorito"
+      />
     </ul>
   </main>
 </template>
