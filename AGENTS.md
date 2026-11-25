@@ -33,5 +33,7 @@ Mantén intacta la rama original `vue-2026-27` de los apuntes. Consulta los dos 
 - Cuando exista la aplicación, ejecuta las comprobaciones disponibles del proyecto y recorre la práctica desde su punto de partida. Valida los flujos y los estados que correspondan a la etapa, incluidas carga y error cuando se introduzcan.
 - En los apuntes, comprueba la navegación, los enlaces a las versiones, la equivalencia ES/EU y que la práctica solo exija conceptos ya introducidos.
 - Registra los resultados y las comprobaciones pendientes en `ESTADO_PROYECTO.md`.
-- Usa commits descriptivos y etiqueta en Git los incrementos didácticos validados para que puedan reproducirse. La planificación de temas y etiquetas se concretará tras la auditoría.
+- Guarda cada etapa validada en un commit descriptivo de TxurdiDex y crea su etiqueta Git sobre ese commit cuando la fase lo autorice.
+- Usa la etiqueta de la etapa anterior como punto de partida de la siguiente práctica. Conserva el material inicial del tema 1, que precede a la primera etiqueta.
+- Enlaza desde los apuntes ES/EU directamente al código fuente y al ZIP de GitHub de la etiqueta correspondiente. Usa siempre la etiqueta para representar una etapa concreta. Evita enlazar a `main` o guardar copias ZIP de las soluciones en MkDocs.
 - Revisa la rama, el remoto y los cambios antes de guardar o publicar versiones. Mantén `node_modules` fuera del control de versiones. Realiza commits, etiquetas, subidas y despliegues cuando estén autorizados para la fase.
