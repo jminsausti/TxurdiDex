@@ -1,43 +1,36 @@
 # Estado del proyecto
 
 **Actualización** — 25 de noviembre de 2026  
-**Fase actual** — Diseño de fase 2 documentado, pendiente de aprobación docente. Fase 3 pendiente de inicio.
+**Fase actual** — Primeros incrementos y adaptación ES/EU completados en local. Próximo tema pendiente de inicio.
 
-## Estado de los repositorios
-
-Las ramas activas coinciden con sus referencias locales de seguimiento. La comprobación se hizo con las referencias disponibles en los clones.
-
-| Carpeta | Rama activa | Remoto `origin` | Commit verificado | Estado al cierre |
-| --- | --- | --- | --- | --- |
-| `Vuejs_Apuntes_es-eu` | `vue-txurdidex-2026-27` | `git@github.com:DAW-Resources-FPTxurdinaga/Vuejs_Apuntes_es-eu.git` | `66a6718b910ee0b1eb8d1c70a330275e542f1bc8` | Limpio |
-| `productogest-vue` | `main` | `git@github.com:jminsausti/ProductoGest-Vue.git` | `bd75e52f21811e94d046e911a3bbb1f37a29fb5f` | Limpio |
-| `Vuejs_pokedex` | `main` | `git@github.com:jminsausti/Vuejs_pokedex.git` | `f4815356d584ec283fbc92d509e97a4729975e1d` | Limpio |
-| `TxurdiDex` | `main` | `git@github.com:jminsausti/TxurdiDex.git` | `a350896d7b6560e2401c1277be4e08a19a9a45a3` | Tres documentos actualizados y tres nuevos sin seguimiento |
-
-La rama original de los apuntes está disponible como `origin/vue-2026-27`. Los cuatro repositorios son clones hermanos según [ENTORNO_TRABAJO.md](ENTORNO_TRABAJO.md).
+La preparación, la [auditoría](AUDITORIA_MIGRACION_TXURDIDEX.md) y el [diseño](DISENO_DIDACTICO_TXURDIDEX.md) quedaron registrados respectivamente en `e5747a4`, `a350896` y `2f6e647`. El [plan de desarrollo](PLAN_DESARROLLO.md) recoge el trabajo coordinado de aplicación y apuntes, tema por tema.
 
 ## Trabajo realizado
 
-- **Fase 0.** Preparación completada y sincronizada en `e5747a4`.
-- **Fase 1.** Auditoría completada y recuperada. El commit `a350896`, presente en `main` y `origin/main`, incorporó la [auditoría histórica](AUDITORIA_MIGRACION_TXURDIDEX.md) y el mapa original.
-- **Fase 2.** Elaborados [diseño didáctico](DISENO_DIDACTICO_TXURDIDEX.md), [diseño técnico](DISENO_TECNICO_TXURDIDEX.md) y [plan de etapas](PLAN_ETAPAS_TXURDIDEX.md). Actualizados [mapa](MAPA_DIDACTICO_TXURDIDEX.md), [plan de desarrollo](PLAN_DESARROLLO.md) y este registro.
+| Entrega | Commit | Resultado |
+| --- | --- | --- |
+| `tema-01-catalogo` | `a35b515` | Cuatro Pokémon locales, tarjetas adaptables, números, tipos y marcadores originales |
+| `tema-02-fundamentos` | `5c4f65d` | Ocho Pokémon, filtros de nombre y tipo combinables, favoritos en memoria, clases dinámicas, contadores, limpieza y mensajes condicionales |
+| Apuntes ES/EU | `f243d1e` | Portada y temas 0–2. Pasos, código de las etapas, material inicial, ZIP locales, capturas reales y resultados esperados. Se conserva el ejercicio de películas (2.11) |
 
-## Decisiones reflejadas en el diseño
+## Estado Git
 
-- Una aplicación Vue 3 incremental con diez entregas, prácticas autónomas preservadas y la misma numeración ES/EU.
-- Cuatro Pokémon locales con kit visual de aula, filtros y favoritos en memoria, componentes, Fetch y Axios sobre el mismo contrato.
-- Equipo persistente de hasta seis en JSON Server, con cuatro métodos en la interfaz y PUT en laboratorio. Datos de aula disponibles sin Internet.
-- Dos cortes de Router, con transición por estado en el raíz, y dos de Pinia, primero favoritos síncronos y después equipo asíncrono.
-- CSS convencional, datos y recursos autorizados, sin autenticación simulada.
+| Repositorio | Rama activa | Referencia al cierre |
+| --- | --- | --- |
+| TxurdiDex | `main` | Commits de las dos etapas y de control en local. Las etiquetas apuntan a sus respectivos commits |
+| Apuntes | `vue-txurdidex-2026-27` | `f243d1e` local. `origin/vue-2026-27` sigue en `66a6718` |
+| ProductoGest | `main` | `bd75e52`, limpio |
+| Pokédex | `main` | `f481535`, limpio |
 
-## Incidencias y decisiones pendientes
+## Comprobaciones
 
-- Validar con el profesor la incorporación de clases dinámicas en 2.5, el cambio del ejemplo HTTP de 2.7, los cortes HTTP de 4.2–4.3, la transición de 4.4 y la adaptación de 6.2–6.4 en ambos idiomas.
-- Aprobar kit y permisos, estrategia de catálogo acotado, contrato del equipo, propuesta de alojamiento y alcance de las ampliaciones.
-- Verificar versiones candidatas y lockfile, comportamiento de JSON Server, pruebas de aula sin Internet y acceso directo a rutas. Se observaron Node `v24.16.0` y npm `12.2.0`. Las comprobaciones de compatibilidad, construcción y ejecución quedan para las fases autorizadas.
+- Node `24.16.0` y npm `12.2.0`. `npm ci` con caché local y `npm run build` pasaron en ambas etapas y al extraer los tres ZIP de los apuntes en carpetas limpias. Las dos etapas comparten manifiesto y lockfile. Dependencias directas limitadas a Vue, Vite y el plugin de Vue.
+- Ambas compilaciones se probaron en Brave con ancho móvil y bloqueo de solicitudes externas. Se verificaron las tarjetas, imágenes, números y tipos. En la etapa 02 pasaron filtros combinados, búsqueda normalizada, tipo secundario, ausencia de coincidencias, limpieza, favoritos al ocultar y mostrar tarjetas, contadores y reinicio al recargar.
+- `mkdocs build --strict` pasó. Se cotejaron las 32 páginas ES/EU, enlaces y rutas locales, las capturas y el contenido de cada ZIP respecto a su etiqueta.
+- Queda por comprobar el entorno en otros equipos del aula y los enlaces públicos de GitHub una vez autorizada la publicación. Para clase ya están los ZIP locales en los apuntes.
 
-## Comprobaciones y próxima tarea
+## Migración pendiente y siguiente tarea
 
-Se revisaron las rutas locales, la coherencia de las diez etiquetas previstas, los puntos de adaptación y el alcance del diff. La fase 2 ha sido documental y sus cambios quedan locales.
+Conservar los contenidos de los temas 3–7 hasta abordar sus incrementos. Siguen pendientes las referencias a ProductoGest en 3.1–3.3, 4.1, 4.3–4.4, 5.1–5.4, 6.1–6.4 y 7.2, en ambos idiomas, además de los títulos de navegación de 5.4 y 6.4 y los materiales históricos del repositorio de apuntes.
 
-Revisar y aprobar los tres documentos de diseño. Solo después de la aprobación docente podrá iniciarse la fase 3 con `tema-01-catalogo`.
+Tras la revisión docente, implementar `tema-03-componentes` desde la etapa 02 y adaptar el tema 3 ES/EU con ese código. No se han publicado las ramas ni las etiquetas.
