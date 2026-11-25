@@ -1,22 +1,30 @@
 # Mapa didáctico de TxurdiDex
 
-Propuesta de la fase 1 para revisión del profesor. El [informe de auditoría](AUDITORIA_MIGRACION_TXURDIDEX.md) contiene las fuentes ES/EU, la clasificación por apartado y los criterios de validación.
+**Fase 2 · Borrador para aprobación docente**
 
-| Tema | Conceptos y material que se conserva | Incremento propuesto | Dependencia nueva | Etiqueta candidata |
+El [diseño didáctico por apartado](DISENO_DIDACTICO_TXURDIDEX.md) desarrolla este mapa. El [diseño técnico](DISENO_TECNICO_TXURDIDEX.md) recoge los contratos y el [plan de etapas](PLAN_ETAPAS_TXURDIDEX.md) describe qué validar en cada entrega. La [auditoría de fase 1](AUDITORIA_MIGRACION_TXURDIDEX.md) conserva las fuentes, la clasificación y las propuestas originales.
+
+| Apartado | Conceptos y material que se conserva | Incremento | Dependencia nueva | Etiqueta prevista |
 | --- | --- | --- | --- | --- |
-| 0 · De JavaScript a Vue | Contador en JavaScript vanilla y Vue; estado y DOM declarativo | Presentar el hilo del curso | Vue por CDN en el ejemplo actual | — |
-| 1 · Conceptos básicos | Vite, SFC, `script setup`, montaje y build | Cuatro Pokémon locales, datos y CSS de partida | Vue y Vite | `tema-01-catalogo` |
-| 2 · Fundamentos | Directivas, formularios, ciclo de vida y reactividad. Películas como ejercicio autónomo | Buscar por nombre, limpiar y mostrar estado vacío; tipo y clase dinámica como ampliación | — | `tema-02-fundamentos` |
-| 3 · Componentes | Ejemplos de saludo, props y eventos | Extraer tarjeta y buscador. El padre conserva el filtro | — | `tema-03-componentes` |
-| 4.1–4.2 · HTTP con Fetch | Asincronía, REST, métodos y JSONPlaceholder | GET de PokeAPI acotado y fixture de aula. Carga, error, vacío y reintento | Fetch nativo | `tema-04-fetch` |
-| 4.3–4.4 · Axios y práctica HTTP | Rick and Morty y los cuatro ejercicios de APIs públicas, incluido Pokémon por nombre/ID | Comparar Axios con Fetch. Si se aprueba, equipo local con GET, POST y DELETE en la interfaz y PUT/PATCH en un laboratorio | Axios; JSON Server si se aprueba el equipo persistente | `tema-04-axios`, `tema-04-equipo-http` opcional |
-| 5 · Vue Router | SitioDemo para rutas básicas y avanzadas | Catálogo y detalle con URL por ID; vista de equipo si ya existe. 404 y navegación programática según el tiempo | Vue Router | `tema-05-router` |
-| 6 · Pinia | Contador compartido, getters, acciones y `storeToRefs` | Equipo y contador compartidos entre vistas. Favoritos como alternativa o ampliación | Pinia | `tema-06-pinia` |
-| 7 · Ejercicios | Lista de tareas, agenda y secuencia de personajes con HTTP → Router → Pinia | Prácticas autónomas del alumnado | Según ejercicio | — |
+| 0.1 | Contador vanilla y Vue, estado y DOM declarativo | Presentar el hilo del curso | Vue por CDN en la demo existente | — |
+| 1.1–1.2 | Vite, SFC, montaje y build | Cuatro Pokémon locales. Kit de datos, recursos y CSS | Vue 3, Vite y plugin Vue | `tema-01-catalogo` |
+| 2.0–2.10 | Reactividad, directivas, formularios, eventos y demos de ciclo de vida y efectos | Búsqueda, tipo, filtros combinados, limpieza, favoritos, clases y contadores | — | `tema-02-fundamentos` |
+| 2.11 | Catálogo de películas | Ejercicio autónomo | Según ejercicio | — |
+| 3.1–3.3 | Creación de SFC, saludo, props y emits | Extraer tarjeta y buscador con selector integrado. El padre conserva estado y filtro | — | `tema-03-componentes` |
+| 4.1–4.2 | Asincronía, REST, JSONPlaceholder y métodos | Cambiar a PokeAPI con GET acotado, estados y modo aula | Fetch nativo | `tema-04-fetch` |
+| 4.3, comparación | Ejemplos de Axios y Rick and Morty | Sustituir transporte, conservar contrato y añadir timeout | Axios | `tema-04-axios` |
+| 4.3, equipo | Práctica de API local | Equipo de seis con GET, POST, PATCH y DELETE. PUT en laboratorio | JSON Server | `tema-04-equipo-http` |
+| 4.4 | Directorio, búsqueda Pokémon por nombre/ID, Rick and Morty y meteorología | Ejercicios autónomos | Según ejercicio | — |
+| 5.1–5.3 | SitioDemo, rutas básicas y avanzadas | Aplicación teórica independiente | Vue Router en SitioDemo | — |
+| 5.4, primer corte | Parámetros y navegación declarativa | Catálogo, detalle, equipo y 404 | Vue Router en TxurdiDex | `tema-05-router` |
+| 5.4, segundo corte | Navegación programática | Avanzar a otro Pokémon desde el detalle | — | `tema-05-completo` |
+| 6.1–6.3 | Contador compartido, getters, acciones y `storeToRefs` | `pinia-demo` independiente | Pinia en la demo | — |
+| 6.4, primer corte | Estado compartido síncrono | Favoritos de catálogo, detalle y cabecera | Pinia en TxurdiDex | `tema-06-favoritos` |
+| 6.4, segundo corte | Estado compartido con acciones asíncronas | Equipo único en Pinia con persistencia vía Axios y JSON Server | — | `tema-06-pinia` |
+| 7.1–7.2 | Tareas, agenda y secuencia de personajes con HTTP → Router → Pinia | Prácticas autónomas | Según ejercicio | — |
 
-## Decisiones para la revisión
+## Revisión y correspondencia ES/EU
 
-- **Escrituras en el tema 4.** Elegir entre equipo parcial, CRUD completo y laboratorio independiente. La variante parcial permite verificar persistencia sin adelantar Router ni Pinia.
-- **Estado compartido en el tema 6.** Elegir equipo o favoritos y definir la persistencia. El uso de un fichero de usuarios y contraseñas queda excluido.
-- **Material inicial.** Aprobar datos, CSS y recursos gráficos. La referencia atribuye el proyecto a Laura Folgado Galache. La reutilización publicable queda sujeta a permisos.
-- **Aula y publicación.** Probar Node, lockfile, fixture sin red y acceso directo a rutas. Confirmar etiquetas, descargas, y ejercicios equivalentes en 6.2–6.4 en castellano y euskera.
+Mantener números y estructura. Ambos idiomas enlazarán a las mismas etiquetas y compartirán puntos de partida, objetivos, pasos, ampliaciones y resultados esperados. Antes de adaptar, revisar los pares de 6.2–6.4 y los ajustes de 2.5, 2.7 y 4.2–4.4 descritos en el diseño didáctico. El desglose ES/EU y las rutas de cada apartado se conservan en la auditoría. [Índice ES](../Vuejs_Apuntes_es-eu/docs/es/index.md) · [Índice EU](../Vuejs_Apuntes_es-eu/docs/eu/index.md)
+
+Quedan pendientes la aprobación docente del diseño, la elección de recursos autorizados y la validación del entorno del aula.

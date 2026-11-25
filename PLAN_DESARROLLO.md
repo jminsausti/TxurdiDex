@@ -1,17 +1,19 @@
 # Plan de desarrollo de TxurdiDex
 
-La planificación detallada de los temas, su correspondencia con los incrementos y los nombres y puntos de corte de las etiquetas Git quedan pendientes de la auditoría.
-
-| Fase | Trabajo | Resultado esperado |
+| Fase | Trabajo | Resultado y estado |
 | --- | --- | --- |
-| 0. Preparación del entorno | Verificar carpetas, ramas, remotos, commits y cambios locales. Crear los cuatro documentos de control. | Punto de partida registrado y guía para retomar el trabajo. |
-| 1. Auditoría de los proyectos | Inventariar la secuencia real de los apuntes ES/EU, las prácticas de ProductoGest y los patrones de la Pokédex. Identificar requisitos previos, ejercicios que siguen siendo válidos y candidatos a adaptación. | Inventario con referencias concretas y propuestas para el diseño. |
-| 2. Diseño didáctico y funcional | Validar el alcance y organizar cada incremento según el temario. Definir objetivos, requisitos previos, criterios de aceptación y etiquetas. | Mapa de temas, prácticas, funcionalidades y versiones. |
-| 3. Desarrollo incremental de TxurdiDex | Implementar y validar cada incremento con Vue 3, Composition API y `<script setup>`. Documentar el código y etiquetar los hitos validados. | Versiones reproducibles de la aplicación para el alumnado. |
-| 4. Adaptación de los apuntes ES/EU | Sustituir las prácticas de ProductoGest por las de TxurdiDex en `vue-txurdidex-2026-27`. Mantener la teoría separada y conservar los ejercicios independientes válidos. | Prácticas equivalentes en castellano y euskera, enlazadas con sus versiones. |
-| 5. Validación técnica y didáctica | Reproducir las prácticas desde las etiquetas y verificar aplicación, documentación, enlaces, paridad lingüística y progresión de conceptos. | Resultados registrados e incidencias resueltas o documentadas. |
-| 6. Publicación | Publicar las versiones y los apuntes una vez validados y autorizados. Verificar los enlaces publicados. | Materiales accesibles y estado final registrado. |
+| 0. Preparación del entorno | Verificar carpetas, ramas, remotos, commits y cambios locales. Crear los documentos de control. | Completada. Base versionada en `e5747a4`. |
+| 1. Auditoría de los proyectos | Inventariar apuntes ES/EU, ProductoGest y Pokédex, requisitos previos y prácticas. | Completada. [Auditoría histórica](AUDITORIA_MIGRACION_TXURDIDEX.md) versionada en `a350896`. |
+| 2. Diseño didáctico y funcional | Concretar alcance, progresión, objetivos y requisitos, arquitectura, aceptación y etiquetas. | Documentación elaborada. Pendiente de aprobación docente. |
+| 3. Desarrollo incremental de TxurdiDex | Implementar, documentar y validar los diez incrementos con Vue 3, Composition API y `<script setup>`. Etiquetarlos cuando corresponda. | Pendiente de aprobación de la fase 2. Versiones independientes y reproducibles. |
+| 4. Adaptación de los apuntes ES/EU | Sustituir prácticas de ProductoGest en `vue-txurdidex-2026-27`. Mantener numeración, teoría separada y ejercicios autónomos. | Prácticas equivalentes y vinculadas con puntos de partida y versiones. |
+| 5. Validación técnica y didáctica | Reproducir prácticas desde etiquetas, comprobar aplicación, paridad ES/EU, navegación y descargas. | Validación de aula y del sitio generado con incidencias registradas. |
+| 6. Publicación | Publicar versiones y apuntes una vez validados y autorizados. Verificar enlaces publicados. | Materiales accesibles y estado final registrado. |
 
-## Funcionalidades candidatas
+## Diseño y secuencia
 
-La auditoría determinará qué funcionalidades se incorporan y en qué orden. La propuesta inicial incluye catálogo de Pokémon, búsqueda y filtros, componentes reutilizables, PokeAPI con Fetch y Axios, estados de carga y error, navegación y detalle con Vue Router, favoritos, gestión de un equipo, operaciones CRUD con JSON Server y estado global con Pinia.
+El [mapa](MAPA_DIDACTICO_TXURDIDEX.md) vincula apuntes e incrementos. El [diseño didáctico](DISENO_DIDACTICO_TXURDIDEX.md) indica qué se enseña y entrega por apartado. El [diseño técnico](DISENO_TECNICO_TXURDIDEX.md) fija los contratos propuestos y el [plan de etapas](PLAN_ETAPAS_TXURDIDEX.md) define los diez cortes con sus pruebas.
+
+El catálogo local evoluciona a filtros y favoritos, componentes, dos cortes comparables de HTTP y un corte de equipo persistente. A continuación llegan dos cortes de Router y dos de Pinia. JSON Server permanece en las etapas que usan el equipo. El tema 7 conserva sus prácticas autónomas.
+
+La fase 3 comienza tras la revisión y aprobación del profesor. Su primer incremento será el catálogo local con el kit inicial de recursos autorizados.

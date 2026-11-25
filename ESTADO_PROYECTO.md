@@ -1,48 +1,43 @@
 # Estado del proyecto
 
 **Actualización** — 25 de noviembre de 2026  
-**Fase actual** — Fases 0 y 1 completadas. Fase 2 pendiente de inicio.
-
-## Fases completadas
-
-- **Fase 0 · Preparación del entorno.** Los cuatro documentos de control se incorporaron en `e5747a4`, commit presente en `main` y en la referencia local `origin/main` del clon de GitHub.
-- **Fase 1 · Auditoría de los proyectos.** Completada en el primer ordenador. Se recuperaron y leyeron íntegramente la [auditoría de migración](AUDITORIA_MIGRACION_TXURDIDEX.md) y el [mapa didáctico](MAPA_DIDACTICO_TXURDIDEX.md). Ambos archivos están disponibles en este ordenador y pendientes de incorporar a Git.
+**Fase actual** — Diseño de fase 2 documentado, pendiente de aprobación docente. Fase 3 pendiente de inicio.
 
 ## Estado de los repositorios
 
-Los cuatro clones son carpetas hermanas. Cada rama activa coincide con su referencia local de seguimiento, sin commits por delante ni por detrás. La comprobación se hizo con las referencias disponibles en los clones.
+Las ramas activas coinciden con sus referencias locales de seguimiento. La comprobación se hizo con las referencias disponibles en los clones.
 
 | Carpeta | Rama activa | Remoto `origin` | Commit verificado | Estado al cierre |
 | --- | --- | --- | --- | --- |
 | `Vuejs_Apuntes_es-eu` | `vue-txurdidex-2026-27` | `git@github.com:DAW-Resources-FPTxurdinaga/Vuejs_Apuntes_es-eu.git` | `66a6718b910ee0b1eb8d1c70a330275e542f1bc8` | Limpio |
 | `productogest-vue` | `main` | `git@github.com:jminsausti/ProductoGest-Vue.git` | `bd75e52f21811e94d046e911a3bbb1f37a29fb5f` | Limpio |
 | `Vuejs_pokedex` | `main` | `git@github.com:jminsausti/Vuejs_pokedex.git` | `f4815356d584ec283fbc92d509e97a4729975e1d` | Limpio |
-| `TxurdiDex` | `main` | `git@github.com:jminsausti/TxurdiDex.git` | `e5747a4532847c113f46183015789c83e105870d` | Estado actualizado y dos documentos recuperados sin seguimiento |
+| `TxurdiDex` | `main` | `git@github.com:jminsausti/TxurdiDex.git` | `a350896d7b6560e2401c1277be4e08a19a9a45a3` | Tres documentos actualizados y tres nuevos sin seguimiento |
 
-La rama original de los apuntes está disponible en este clon como `origin/vue-2026-27`.
+La rama original de los apuntes está disponible como `origin/vue-2026-27`. Los cuatro repositorios son clones hermanos según [ENTORNO_TRABAJO.md](ENTORNO_TRABAJO.md).
 
-## Decisiones adoptadas
+## Trabajo realizado
 
-- Desarrollar TxurdiDex con Vue 3, Composition API y `<script setup>`, siguiendo la secuencia de los apuntes.
-- Usar ProductoGest y la Pokédex como referencias de solo lectura. Reservar la adaptación de los apuntes para `vue-txurdidex-2026-27`.
-- Mantener la teoría separada de las prácticas, conservar los ejercicios independientes válidos y actualizar la documentación del alumnado en castellano y euskera.
-- Identificar con etiquetas Git los incrementos didácticos validados. Excluir el uso de un fichero de usuarios y contraseñas en el frontend como ejemplo de autenticación segura.
+- **Fase 0.** Preparación completada y sincronizada en `e5747a4`.
+- **Fase 1.** Auditoría completada y recuperada. El commit `a350896`, presente en `main` y `origin/main`, incorporó la [auditoría histórica](AUDITORIA_MIGRACION_TXURDIDEX.md) y el mapa original.
+- **Fase 2.** Elaborados [diseño didáctico](DISENO_DIDACTICO_TXURDIDEX.md), [diseño técnico](DISENO_TECNICO_TXURDIDEX.md) y [plan de etapas](PLAN_ETAPAS_TXURDIDEX.md). Actualizados [mapa](MAPA_DIDACTICO_TXURDIDEX.md), [plan de desarrollo](PLAN_DESARROLLO.md) y este registro.
 
-## Decisiones de diseño pendientes
+## Decisiones reflejadas en el diseño
 
-- Aprobar la secuencia propuesta y distinguir los objetivos obligatorios de las ampliaciones, como el filtro por tipo, las clases dinámicas y los favoritos.
-- Decidir el alcance de las escrituras HTTP en el tema 4. La auditoría propone equipo parcial con JSON Server, CRUD completo o laboratorio independiente. Si se incorpora el equipo, concretar métodos, campos, duplicados y restauración de datos.
-- Elegir equipo o favoritos como práctica de Pinia en 6.4 y decidir qué estado debe persistir tras recargar.
-- Aprobar el kit inicial de datos, CSS e imágenes, y confirmar la procedencia, la atribución y los permisos de reutilización.
-- Fijar objetivos, requisitos previos, criterios de aceptación, etiquetas y descargas por incremento. Decidir el destino de los materiales históricos y cuándo armonizar los ejercicios ES/EU de 6.2–6.4.
-- Definir la versión de Node para el aula, la verificación del lockfile, el uso de datos locales sin red y las pruebas de acceso directo a las rutas publicadas.
+- Una aplicación Vue 3 incremental con diez entregas, prácticas autónomas preservadas y la misma numeración ES/EU.
+- Cuatro Pokémon locales con kit visual de aula, filtros y favoritos en memoria, componentes, Fetch y Axios sobre el mismo contrato.
+- Equipo persistente de hasta seis en JSON Server, con cuatro métodos en la interfaz y PUT en laboratorio. Datos de aula disponibles sin Internet.
+- Dos cortes de Router, con transición por estado en el raíz, y dos de Pinia, primero favoritos síncronos y después equipo asíncrono.
+- CSS convencional, datos y recursos autorizados, sin autenticación simulada.
 
-## Comprobaciones e incidencias
+## Incidencias y decisiones pendientes
 
-- Se leyeron [AGENTS.md](AGENTS.md), [PLAN_DESARROLLO.md](PLAN_DESARROLLO.md), [ENTORNO_TRABAJO.md](ENTORNO_TRABAJO.md) y el resto de la documentación de TxurdiDex. Los commits de los cuatro clones coinciden con las revisiones citadas en la auditoría recuperada.
-- La guía de entorno permite elegir la carpeta común en cada equipo. Sus comandos y enlaces locales usan rutas relativas y los remotos SSH requieren acceso a GitHub desde cada ordenador.
-- Los dos documentos recuperados y esta actualización quedan pendientes de incorporación a Git cuando se autorice. Las pruebas de aula y de publicación quedan pendientes para sus fases.
+- Validar con el profesor la incorporación de clases dinámicas en 2.5, el cambio del ejemplo HTTP de 2.7, los cortes HTTP de 4.2–4.3, la transición de 4.4 y la adaptación de 6.2–6.4 en ambos idiomas.
+- Aprobar kit y permisos, estrategia de catálogo acotado, contrato del equipo, propuesta de alojamiento y alcance de las ampliaciones.
+- Verificar versiones candidatas y lockfile, comportamiento de JSON Server, pruebas de aula sin Internet y acceso directo a rutas. Se observaron Node `v24.16.0` y npm `12.2.0`. Las comprobaciones de compatibilidad, construcción y ejecución quedan para las fases autorizadas.
 
-## Próxima tarea
+## Comprobaciones y próxima tarea
 
-Iniciar la fase 2, diseño didáctico y funcional, con la revisión docente del alcance HTTP, el caso de estado compartido y la estrategia de materiales y permisos. A partir de esas decisiones, concretar el mapa de prácticas, funcionalidades y versiones descrito en el plan de desarrollo.
+Se revisaron las rutas locales, la coherencia de las diez etiquetas previstas, los puntos de adaptación y el alcance del diff. La fase 2 ha sido documental y sus cambios quedan locales.
+
+Revisar y aprobar los tres documentos de diseño. Solo después de la aprobación docente podrá iniciarse la fase 3 con `tema-01-catalogo`.
