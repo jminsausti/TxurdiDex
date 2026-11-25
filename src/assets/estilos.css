@@ -138,3 +138,125 @@ h1 {
   font-size: .875rem;
   font-weight: 650;
 }
+
+[data-tipo="Normal"] { --tono: #e8e1f2; --color: #4c4861; }
+[data-tipo="Bicho"] { --tono: #ebf1cd; --color: #495a19; }
+[data-tipo="Roca"] { --tono: #f1dfcc; --color: #654939; }
+[data-tipo="Tierra"] { --tono: #f2e8c9; --color: #644f27; }
+[data-tipo="Fantasma"] { --tono: #e4dbf3; --color: #503d78; }
+
+.resumen-favoritos {
+  margin-inline-start: auto;
+  color: #e2f4c2;
+  font-size: .875rem;
+  font-weight: 700;
+}
+
+.filtros {
+  display: grid;
+  grid-template-columns: minmax(14rem, 2fr) minmax(10rem, 1fr) auto;
+  align-items: end;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--borde);
+  border-radius: 1rem;
+  background: #fff;
+}
+
+.campo {
+  display: grid;
+  gap: .375rem;
+  min-width: 0;
+}
+
+.campo label {
+  font-weight: 700;
+}
+
+.campo input,
+.campo select,
+.limpiar {
+  min-height: 2.75rem;
+  padding: .5rem .75rem;
+  border: 1px solid #8fa3b6;
+  border-radius: .5rem;
+  background: #fff;
+  color: var(--tinta);
+  font: inherit;
+}
+
+.campo select {
+  appearance: none;
+  padding-inline-end: 2rem;
+  background:
+    linear-gradient(45deg, transparent 50%, #334d65 50%) right 1.05rem center / .35rem .35rem no-repeat,
+    linear-gradient(135deg, #334d65 50%, transparent 50%) right .7rem center / .35rem .35rem no-repeat,
+    #fff;
+}
+
+.limpiar {
+  border-color: #13283f;
+  background: #13283f;
+  color: #fff;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.limpiar:hover {
+  background: #254866;
+}
+
+.favorito {
+  position: absolute;
+  inset: .5rem .5rem auto auto;
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid #78899b;
+  border-radius: 50%;
+  background: #fff;
+  color: #13283f;
+  font: 1.5rem/1 system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.favorito:hover {
+  background: #f4f8ef;
+}
+
+.favorito.activo {
+  border-color: #395b18;
+  background: #c7f66b;
+  color: #25410c;
+}
+
+:where(input, select, button):focus-visible {
+  outline: 3px solid #2459b0;
+  outline-offset: 3px;
+}
+
+.pista {
+  margin: .6rem 0 0;
+  color: #405770;
+}
+
+.recuento {
+  margin-block: 1.1rem .65rem;
+  font-weight: 700;
+}
+
+.sin-resultados {
+  margin: 0;
+  padding: 1.25rem;
+  border: 1px dashed #8fa3b6;
+  border-radius: 1rem;
+  background: #fff;
+}
+
+@media (max-width: 42rem) {
+  .filtros {
+    grid-template-columns: 1fr;
+  }
+}

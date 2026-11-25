@@ -1,8 +1,10 @@
 # TxurdiDex
 
-Aplicación didáctica incremental de Vue 3 para 2.º DAW. En la etapa
-`tema-01-catalogo` se muestran cuatro Pokémon con datos locales y tarjetas
-adaptables al ancho de pantalla.
+Aplicación didáctica incremental de Vue 3 para 2.º DAW. La etapa
+`tema-01-catalogo` muestra cuatro Pokémon con datos locales. La etapa
+`tema-02-fundamentos` añade cuatro más, búsqueda por nombre, filtro por tipo y
+favoritos en memoria. La búsqueda y el tipo se combinan. Limpiar filtros
+conserva los favoritos, que se reinician al recargar la página.
 
 ## Ejecutar en local
 
