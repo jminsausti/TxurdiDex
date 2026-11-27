@@ -1,12 +1,11 @@
 # TxurdiDex
 
-Aplicación didáctica incremental de Vue 3 para 2.º DAW. En la etapa
-`tema-01-catalogo` se muestran cuatro Pokémon con datos locales y tarjetas
+Aplicación didáctica incremental de Vue 3 para 2.º DAW. Esta versión inicial muestra cuatro Pokémon con datos locales y tarjetas
 adaptables al ancho de pantalla.
 
 ## Ejecutar en local
 
-Usa la versión de Node indicada en `.nvmrc` (24.16.0, comprobada con npm 12.2.0).
+Usa Node 22.18.0 o posterior de la rama 22, o Node 24.12.0 o posterior de la rama 24.
 Desde esta carpeta:
 
 ```bash
@@ -24,11 +23,9 @@ npm run preview
 
 ## Material para la práctica
 
-`src/data/pokemon.js` contiene los registros. `src/assets/` incluye el CSS y
-marcadores de tipo originales de TxurdiDex, creados para la práctica. Son
-símbolos geométricos de los tipos, sin ilustraciones de Pokémon de terceros.
-`src/App.vue` reúne la lógica y la plantilla del catálogo. En una copia de
-trabajo, añade registros con IDs distintos y reutiliza los marcadores locales.
+`src/App.vue` reúne los datos, la plantilla y el CSS. `public/marcadores/`
+contiene los símbolos originales de TxurdiDex para los cuatro tipos. Puedes
+reutilizarlos al añadir registros con IDs distintos.
 
 ProductoGest y la Pokédex de referencia, atribuida a Laura Folgado Galache,
 sirvieron para estudiar la progresión de los apuntes.
