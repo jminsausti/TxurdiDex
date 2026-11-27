@@ -3,6 +3,12 @@
 **Actualización** — 25 de noviembre de 2026  
 **Fase actual** — Diseño de fase 2 documentado, pendiente de aprobación docente. Fase 3 pendiente de inicio.
 
+## Integración selectiva del tema 2 · 27 de noviembre de 2026
+
+En `integracion-apuntes`, a partir de `tema-01-inicial`, el catálogo mantiene cuatro Pokémon y añade el buscador por nombre, los recuentos, el aviso sin coincidencias y el botón para limpiar. En `vue-txurdidex`, las prácticas de 2.1 a 2.5 reproducen el mismo `App.vue` en castellano y euskera. La compilación y el recorrido en Brave con acceso externo bloqueado se completaron en ambas copias.
+
+La solución queda pendiente de revisión docente antes de crear `tema-02-fundamentos-v2` y enlazar sus descargas. Las ramas principales y las etiquetas existentes se conservaron.
+
 ## Estado de los repositorios
 
 Las ramas activas coinciden con sus referencias locales de seguimiento. La comprobación se hizo con las referencias disponibles en los clones.

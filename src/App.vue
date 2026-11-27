@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 const titulo = ref('TxurdiDex')
 const pokemons = ref([
@@ -8,14 +8,37 @@ const pokemons = ref([
   { id: 7, nombre: 'Squirtle', tipo: 'Agua', imagen: './marcadores/agua.png' },
   { id: 25, nombre: 'Pikachu', tipo: 'Eléctrico', imagen: './marcadores/electrico.png' }
 ])
+
+const busqueda = ref('')
+
+const pokemonsFiltrados = computed(() => {
+  const texto = busqueda.value.trim().toLowerCase()
+  return pokemons.value.filter(pokemon =>
+    pokemon.nombre.toLowerCase().includes(texto)
+  )
+})
+
+function limpiarBusqueda() {
+  busqueda.value = ''
+}
 </script>
 
 <template>
   <header><h1>{{ titulo }}</h1></header>
   <main>
     <h2>Catálogo Pokémon</h2>
-    <ul>
-      <li v-for="pokemon in pokemons" :key="pokemon.id" :data-tipo="pokemon.tipo">
+    <p>Pokémon en el catálogo: {{ pokemons.length }}</p>
+    <div class="buscador">
+      <label for="buscar">Buscar Pokémon</label>
+      <input id="buscar" v-model="busqueda" type="search" placeholder="Ej.: Pika">
+      <button type="button" @click="limpiarBusqueda" :disabled="!busqueda">
+        Limpiar búsqueda
+      </button>
+    </div>
+    <p>Pokémon encontrados: {{ pokemonsFiltrados.length }}</p>
+    <p v-if="pokemonsFiltrados.length === 0" role="status">No se han encontrado Pokémon.</p>
+    <ul v-else>
+      <li v-for="pokemon in pokemonsFiltrados" :key="pokemon.id" :data-tipo="pokemon.tipo" :title="pokemon.tipo">
         <div class="ilustracion">
           <span>#{{ pokemon.id }}</span>
           <img :src="pokemon.imagen" alt="" width="128" height="128">
@@ -49,4 +72,8 @@ h3 { margin: 0 0 .5rem; }
 [data-tipo="Fuego"] { --tono: #ffe3d3; }
 [data-tipo="Agua"] { --tono: #d5eafb; }
 [data-tipo="Eléctrico"] { --tono: #fff0b4; }
+.buscador { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin-block: 1rem; }
+.buscador input { box-sizing: border-box; width: min(100%, 19rem); border: 1px solid #64748b; border-radius: .5rem; padding: .5rem .75rem; font: inherit; }
+.buscador button { border: 1px solid #13283f; border-radius: .5rem; padding: .5rem .75rem; background: #13283f; color: white; font: inherit; cursor: pointer; }
+.buscador button:disabled { opacity: .65; cursor: not-allowed; }
 </style>
